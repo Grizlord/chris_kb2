@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app to help me search through all the stuff i have in a one note.
 
-Things you may want to cover:
+The one note is a little big and I just wanted something better and easier to search.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It will have full tect search using the pg_search gem and will use the trix gem for formatting the posts.
