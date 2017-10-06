@@ -1,0 +1,14 @@
+<% provide(:title, "Categories") %>
+<div>
+  <%= link_to 'New Category', new_category_path %></li>
+</div>
+<h1>Categories</h1>
+<div class="row">
+  <div class="col-md-8">
+    <% if @categories.any? %>
+      <ol>
+        <%= render @categories %>
+      </ol>
+    <% end %>
+  </div>
+</div>

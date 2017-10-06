@@ -1,0 +1,7 @@
+<li>
+  <%= category.name %>
+  <% if current_user.admin? %>
+    | <%= link_to "delete", category, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

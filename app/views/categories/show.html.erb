@@ -1,0 +1,13 @@
+<% provide(:title, @category.name) %>
+
+<div class="row">
+  <div class="article_list">
+    
+      <ol class="articles">
+         <%= render 'cat_show' %>
+      </ol>
+      
+      <%= will_paginate @articles %>
+      
+  </div>
+</div>

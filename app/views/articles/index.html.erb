@@ -1,0 +1,27 @@
+<% provide(:title, "Articles") %>
+
+<div>
+  <%= link_to 'New Article', new_article_path %>
+</div>
+
+<div class="row">
+  
+<div class="search">
+  <%= form_tag articles_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query], class: 'form-control' %>
+    <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+  </p>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="article_list">
+    <% if @articles.any? %>
+      <ol class="articles">
+        <%= render @articles %>
+      </ol>
+      
+    <% end %>
+  </div>
+</div>
