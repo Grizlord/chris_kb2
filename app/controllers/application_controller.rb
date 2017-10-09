@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  before_action :cat_nav
+    
+  def cat_nav
+    @categories = Category.all
+  end
   
   private
 

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user,   only: :destroy
   
   def index
-    @articles = Article.text_search(params[:query])
+    @articles = Article.text_search(params[:query]).paginate(page: params[:page], :per_page => 10)
   end
   
   def show
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
     if @article.save
       flash[:success] = "You did it Water Boy"
-      redirect_to root_url
+      redirect_to @article
     else
       render 'new'
     end
