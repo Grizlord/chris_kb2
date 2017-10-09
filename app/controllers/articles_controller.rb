@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:success] = "You did it Water Boy"
+      flash[:success] = "You did it Water Boy!"
       redirect_to @article
     else
       render 'new'
