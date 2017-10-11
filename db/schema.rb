@@ -10,10 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006152107) do
+ActiveRecord::Schema.define(version: 20171011143927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_trgm"
+  enable_extension "fuzzystrmatch"
 
   create_table "articles", force: :cascade do |t|
     t.string "title"

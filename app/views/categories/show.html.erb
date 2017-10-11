@@ -1,13 +1,20 @@
 <% provide(:title, @category.name) %>
+<h1><%= @category.name %></h1>
 
 <div class="row">
+  <div class="search">
+    <%= form_tag category_path, method: :get do %>
+    <p>
+      <%= text_field_tag :query, params[:query], class: 'form-control' %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+    </p>
+    <% end %>
+  </div>
+  
   <div class="article_list">
-    
-      <ol class="articles">
-         <%= render 'cat_show' %>
-      </ol>
-      
-      <%= will_paginate @articles %>
-      
+    <ol class="articles">
+      <%= render 'cat_show' %>
+    </ol>
+    <%= will_paginate @articles %>
   </div>
 </div>

@@ -9,7 +9,10 @@ class Article < ApplicationRecord
   
   include PgSearch
   pg_search_scope :search, against: [:title, :content],
-    using: {tsearch: {dictionary: "english"}}
+                  using: {tsearch: {dictionary: "english"},
+                          trigram: {},
+                          dmetaphone: {}
+                         }
   
   def self.text_search(query)
     if query.present?
