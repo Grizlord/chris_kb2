@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :destroy]
   before_action :correct_user,   only: :destroy
-  
+ 
   def index
     @articles = Article.text_search(params[:query]).paginate(page: params[:page], :per_page => 10)
   end
