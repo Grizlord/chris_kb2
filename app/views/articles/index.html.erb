@@ -10,9 +10,11 @@
   <% end %>
 </div>
 
+<% if logged_in? %>
 <div class="new_link">
 <%= link_to 'New Article', new_article_path, class: "btn btn-primary" %>
 </div>
+<% end %>
 
 <div class="row">
   <div class="article_list">

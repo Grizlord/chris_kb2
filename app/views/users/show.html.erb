@@ -9,6 +9,8 @@
     </section>
   </aside>
   
+  <h1>My Articles</h1>
+  
   <% if @articles.any? && current_user?(@user) %>
   <div class="article_list">
       <% @articles.each do |article| %>
