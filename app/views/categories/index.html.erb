@@ -1,8 +1,13 @@
 <% provide(:title, "Categories") %>
-<div>
-  <%= link_to 'New Category', new_category_path %></li>
-</div>
+
 <h1>Categories</h1>
+
+<% if logged_in? %>
+<div class="new_link">
+  <%= link_to 'New Category', new_category_path, class: "btn btn-warning btn-sm" %>
+</div>
+<% end %>
+
 <div class="row">
   <div class="col-md-8">
     <% if @categories.any? %>
