@@ -1,11 +1,13 @@
 <% provide(:title, "Article Edit") %>
 <% provide(:button_text, 'Save changes') %>
-<h1>Update the Article</h1>
+<h1>Make Changes</h1>
+
+<div class="new_link">
+<%= link_to 'Back to Article', @article, class: "btn btn-warning btn-sm" %>
+</div>
 
 <div class="row">
   <div class="col-md-9 col-md-offset-2">
     <%= render 'form' %>
   </div>
 </div>
-
-<%= link_to 'Back to Article', @article %>
