@@ -1,0 +1,19 @@
+<% provide(:title, "Helpful Links") %>
+
+<h1>Helpful Links</h1>
+
+<% if logged_in? %>
+<div class="new_link">
+  <%= link_to 'New Helpful Link', new_helpful_link_path, class: "btn btn-warning btn-sm" %>
+</div>
+<% end %>
+
+<div class="row">
+  <div>
+    <% if @helpful_links.any? %>
+     <div>
+        <%= render 'helpful_links_index' %>
+     </div>
+    <% end %>
+  </div>
+</div>

@@ -223,6 +223,18 @@ input {
   }
 }
 
+.cat_helpful_index {
+  padding: 0;
+  font-size: 17px;
+  li {
+    padding: 10px 0;
+   
+  }
+  .content {
+    display: block;
+  }
+}
+
 aside {
   textarea {
     height: 100px;

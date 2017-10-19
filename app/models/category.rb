@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_many :articles, dependent: :destroy
+  default_scope -> { order(name: :asc) }
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   
   include PgSearch

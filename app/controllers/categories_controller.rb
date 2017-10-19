@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :index, :destroy]
-  before_action :admin_user,     only: :destroy
+  before_action :logged_in_user, only: [:new, :edit, :index, :destroy]
+  before_action :admin_user,     only: [:new, :edit, :index, :destroy]
    
   def index
     @categories = Category.all
@@ -15,6 +15,10 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
   
+  def edit
+    @category = Category.find(params[:id])
+  end
+  
   def create
     @category = Category.new(category_params)
     if @category.save
@@ -22,6 +26,16 @@ class CategoriesController < ApplicationController
       redirect_to categories_path
     else
       render 'new'
+    end
+  end
+  
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      flash[:success] = "Category successfully updated"
+      redirect_to categories_path
+    else
+      render 'edit'
     end
   end
   

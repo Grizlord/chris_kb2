@@ -1,9 +1,10 @@
 <h3>Helpful Links</h3>
 
 <ul>
-  <li><a href="http://intranet.dell.com/dept/aes/links/turbo-tech/Home/Default/Commercial/Enterprise/Server/default.aspx"target="_blank">TurboTech</a></a></li>
-  <li><a href ="http://www.dell.com/support/home/us/en/04?c=us&l=en&s=bsd"target="_blank">Support.Dell</a></li>
+  <% @helpful_links.each do |link| %>
+    <li>
+      <%= link_to link.name, url_with_protocol(link.url), :target => '_blank' %>
+    </li>
+  <% end %>
   <li><%= link_to "Linux Wiki", wisdom_path %></li>
-  <li><a href ="https://spmd.dell.com/spmd/Search/"target="_blank">SPMD</a></li>
-  <li><a href ="https://my.nutanix.com/#/login"target="_blank">Nutanix Portal</a></li>
 </ul>

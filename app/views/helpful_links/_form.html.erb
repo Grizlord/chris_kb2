@@ -1,0 +1,11 @@
+<%= form_for(@helpful_link) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name, "Link Name" %>
+  <%= f.text_field :name, class: 'form-control' %>
+  
+  <%= f.label :url, "Link URL" %>
+  <%= f.text_field :url, class: 'form-control' %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

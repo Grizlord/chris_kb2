@@ -1,5 +1,5 @@
 <% provide(:title, "Home") %>
-<h1>All Articles</h1>
+<h1>Search All</h1>
 
 <div class="search">
   <%= form_tag articles_path, method: :get do %>
@@ -17,7 +17,7 @@
 <% end %>
 
 <div class="row">
-  <div class="article_list">
+  <div>
     <% if @articles.any? %>
       <ol class="articles">
         <%= render @articles %>

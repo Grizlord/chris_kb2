@@ -1,7 +1,8 @@
 <li>
   <%= category.name %>
-  <% if current_user.admin? %>
-    | <%= link_to "delete", category, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+  <% if current_user.admin? %><br>
+      <%= link_to "Delete", category, method: :delete,
+                                  data: { confirm: "You sure?" }, class: "btn btn-primary btn-xs" %>
+      <%= link_to 'Edit', edit_category_path(category), class: "btn btn-primary btn-xs" %>
   <% end %>
 </li>

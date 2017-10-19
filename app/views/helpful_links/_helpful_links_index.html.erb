@@ -1,0 +1,13 @@
+<ol class="cat_helpful_index">
+  <% @helpful_links.each do |link| %>
+    <li>
+      <%= link.name %><br>
+ 
+      <% if current_user.admin? %>
+          <%= link_to "Delete", link, method: :delete,
+                                  data: { confirm: "You sure?" }, class: "btn btn-primary btn-xs" %>
+      <% end %> 
+      <%= link_to 'Edit', edit_helpful_link_path(link), class: "btn btn-primary btn-xs" %>
+    </li>
+  <% end %>
+</ol>

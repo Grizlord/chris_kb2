@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   before_action :cat_nav
-    
+  before_action :helpful_links
+  
+  def helpful_links
+    @helpful_links = HelpfulLink.all
+  end
+  
   def cat_nav
     @categories = Category.all
   end
@@ -20,6 +25,6 @@ class ApplicationController < ActionController::Base
     
     # Confirms an admin user.
     def admin_user
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(root_url) && flash[:danger] = "You are not authorized!" unless current_user.admin?
     end
 end
