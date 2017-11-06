@@ -18,7 +18,7 @@
 
 <div class="row">
   <div>
-    <% if @articles.any? && params[:query].present? %>
+    <% if params[:query].present? %>
       <ol class="articles">
         <%= render @articles %>
       </ol>
