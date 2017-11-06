@@ -1,5 +1,5 @@
 <% provide(:title, "Home") %>
-<h1>Search All</h1>
+<h1 id="home_page_header"> Chris' KB </h1>
 
 <div class="search">
   <%= form_tag articles_path, method: :get do %>
@@ -18,7 +18,7 @@
 
 <div class="row">
   <div>
-    <% if @articles.any? %>
+    <% if @articles.any? && params[:query].present? %>
       <ol class="articles">
         <%= render @articles %>
       </ol>

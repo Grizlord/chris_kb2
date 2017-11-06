@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin: 60px 0 0 0;
   text-align: center;
 }
 
@@ -263,11 +263,9 @@ textarea {
 }
 
 .categories_div {
- 
   
-  margin-right: 5em;
   margin-left: auto;
-  padding: 135px 0 2em 0;
+  padding: 80px 0 2em 0;
   ul {
     list-style: none;
     padding: 0 0 0 0;
@@ -310,4 +308,9 @@ textarea {
   float: right;
   text-align: center;
  
+}
+
+#home_page_header{
+  visibility: hidden;
+  
 }
