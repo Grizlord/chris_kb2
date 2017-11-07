@@ -10,8 +10,7 @@ class Article < ApplicationRecord
   include PgSearch
   pg_search_scope :search, against: [:title, :content],
                   using: {tsearch: {dictionary: "english"},
-                          trigram: {},
-                          dmetaphone: {}
+                          trigram: {}
                          }
   
   def self.text_search(query)
