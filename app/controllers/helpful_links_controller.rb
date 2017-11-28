@@ -1,7 +1,7 @@
 class HelpfulLinksController < ApplicationController
   before_action :set_helpful_link, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:new, :edit, :index, :destroy]
-  before_action :admin_user,     only: [:new, :edit, :index, :destroy]
+  before_action :logged_in_user,   only: [:new, :edit, :index, :destroy]
+  before_action :admin_user,       only: [:new, :edit, :index, :destroy]
  
   def index
     @helpful_links = HelpfulLink.all

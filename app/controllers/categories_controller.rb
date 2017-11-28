@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :edit, :index, :destroy]
-  before_action :admin_user,     only: [:new, :edit, :index, :destroy]
-   
+  before_action :logged_in_user,     only: [:new, :edit, :index, :destroy]
+  before_action :admin_user,         only: [:new, :edit, :index, :destroy]
+  before_action :internal_category,  only: :show
+  
   def index
     @categories = Category.all
   end
@@ -57,5 +58,12 @@ class CategoriesController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    def internal_category
+      @category = Category.find(params[:id])
+      if @category.name == "Internal"
+        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that category!" unless logged_in? && current_user.internal?
+      end
     end
 end

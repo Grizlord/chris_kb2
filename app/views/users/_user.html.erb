@@ -6,8 +6,12 @@
                                   data: { confirm: "You sure?" } %>
     <div Class="admin_button">
     <%= form_for user do |f| %>
-      <%= f.label :admin, 'Make Admin' %>
+      <%= f.label :admin, 'Admin User' %>
       <%= f.check_box :admin %>
+      
+      <%= f.label :internal, 'Internal Dell User' %>
+      <%= f.check_box :internal %>
+      
       <%= f.submit "submit", class: "btn btn-primary" %>
     <% end %>  
     </div>

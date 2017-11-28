@@ -1,8 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user,    only: [:new, :create, :edit, :destroy]
+  before_action :correct_user,      only: :destroy
+  before_action :internal_article,  only: [:show, :edit]
+  
  
   def index
+    # using pg_search gem
     @articles = Article.text_search(params[:query]).paginate(page: params[:page], :per_page => 10)
   end
   
@@ -12,7 +15,6 @@ class ArticlesController < ApplicationController
   
   def new
     @article = Article.new
-    @categories = Category.all
   end
   
   def create
@@ -56,4 +58,12 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.find_by(id: params[:id])
       redirect_to root_url if @article.nil?
     end
+    
+     # confirms an internal user.
+    def internal_article
+      @article = Article.find(params[:id])
+      if @article.category.name == "Internal"
+        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that article!" unless logged_in? && current_user.internal?
+      end
+    end  
 end
