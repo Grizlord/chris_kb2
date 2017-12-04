@@ -63,7 +63,7 @@ class CategoriesController < ApplicationController
     def internal_category
       @category = Category.find(params[:id])
       if @category.name == "Internal"
-        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that category!" unless logged_in? && current_user.internal?
+        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that category! Contact the site admin if you feel you should have access." unless logged_in? && current_user.internal?
       end
     end
 end

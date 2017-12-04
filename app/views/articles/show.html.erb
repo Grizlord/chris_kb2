@@ -4,7 +4,15 @@
 <h1><%= @article.title %></h1>
 
 <div class="jumbotron article_show">
- 
+  
+  <% if @article.category.name == "Internal" %>
+    <h3>
+      <font color="red">
+        This article contains information intended for internal Dell emplyees only.
+      </font>
+    </h3><br>
+  <% end %>
+    
   <%= sanitize @article.content %>
 
 </div>

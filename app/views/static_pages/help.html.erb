@@ -1,30 +1,29 @@
 <% provide(:title, "Help") %>
 <div class="row">
-    <h1>If you are here you have questions</h1>
-    
+    <font color="red">
+      <h3 >
+          This site is intended for <strong>internal Dell employees only</strong>, do not post internal Dell KB articles without setting the category to internal.<br><br>
+          Please do not forward direct links of any internal articles to your customers.
+      </h3>
+    </font>
     <h3>Need to know</h3>
         <ul>
             <li>You search <strong>ALL</strong> articles on the home page, only articles under each category are searched under the respective category pages.</li>
             <li>You must be logged in to publish and update articles.</li>
             <li>If you want new categories or helpful links added just let me know.</li>
             <li>Any one can edit articles, even if they didn't create them.</li>
+            <li>You must be logged in and set to an internal user by the site admin to view or edit articles with their category set to internal.</li>
             <li>If you receive a "not authorized" message when trying to view an article and believe you should be able to see it, let me know and we can look into getting you access.</li>
         </ul>
     
-    <h3>Posting Articles</h3>
-    
-        <p>
-        It is a good idea to include some tags at the bottom of the article to improve the chance of finding the article in the search.
-        </p>
-    
-    <h3>Things I might add</h3>
-        <ul>
-            <li>Expandable category tree.</li>
-            <li>Let me know if you have any ideas.</li>
-        </ul>
-    <br>
+        <div>
+          <strong>
+            <font color="green">It is a good idea to include some tags at the bottom of the article to improve the chance of finding the article in a search.</font>
+          </strong>
+        </div>
+   
     <div>
-      <%= link_to "Contact", contact_path %> me if you have other questions.
+       <h3>Should I add something? <%= link_to "Let me know!", contact_path %></h3><br>
     </div>
     
 </div>

@@ -59,11 +59,11 @@ class ArticlesController < ApplicationController
       redirect_to root_url if @article.nil?
     end
     
-     # confirms an internal user.
+     # Denies access to internal articles if you are not an internal user.
     def internal_article
       @article = Article.find(params[:id])
       if @article.category.name == "Internal"
-        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that article!" unless logged_in? && current_user.internal?
+        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that article! Contact the site admin if you feel you should have access." unless logged_in? && current_user.internal?
       end
     end  
 end
