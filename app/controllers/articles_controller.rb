@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
     def internal_article
       @article = Article.find(params[:id])
       if @article.category.name == "Internal"
-        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that article! Contact the site admin if you feel you should have access." unless logged_in? && current_user.internal?
+        redirect_to(root_url) && flash[:danger] = "You are not authorized to view that article! Try logging in or contact the site admin if you feel you should have access." unless logged_in? && current_user.internal?
       end
     end  
 end
