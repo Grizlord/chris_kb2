@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :logged_in_user,    only: [:new, :create, :edit, :destroy]
   before_action :correct_user,      only: :destroy
-  before_action :internal_article,  only: [:show, :edit]
+  before_action :article_access,  only: [:show, :edit]
   
  
   def index
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
    private
 
     def article_params
-      params.require(:article).permit(:title, :content, :user_id, :category_id)
+      params.require(:article).permit(:title, :content, :user_id, category_ids: [])
     end
     
     def correct_user
@@ -60,9 +60,10 @@ class ArticlesController < ApplicationController
     end
     
      # Denies access to internal articles if you are not an internal user.
-    def internal_article
+    def article_access
       @article = Article.find(params[:id])
-      if @article.category.name == "Internal"
+     
+      if @article.internal?
         redirect_to(root_url) && flash[:danger] = "You are not authorized to view that article! Try logging in or contact the site admin if you feel you should have access." unless logged_in? && current_user.internal?
       end
     end  

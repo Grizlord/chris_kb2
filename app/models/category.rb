@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
-  has_many :articles, dependent: :destroy
+  has_many :categorizations, dependent: :destroy
+  has_many :articles, :through => :categorizations
   default_scope -> { order(name: :asc) }
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   

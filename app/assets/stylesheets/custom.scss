@@ -154,15 +154,20 @@ input {
   width: 50%;
 }
 
+/* Checkboxes */
+
 .checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
+
   span {
     margin-left: 20px;
     font-weight: normal;
   }
 }
 
+#article_checkbox {
+  border-bottom: 1px solid #e8e8e8;
+}
+ 
 #session_remember_me {
   width: auto;
   margin-left: 0;
@@ -305,3 +310,5 @@ textarea {
 .contact_list{
   list-style: none;
 }
+
+

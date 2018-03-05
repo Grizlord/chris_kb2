@@ -4,9 +4,21 @@
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
     <%= f.label :content %>
-    <%= f.trix_editor :content, placeholder: "Content goes here..." %>
+    <%= f.trix_editor :content %><br>
+  <div>
     <%= f.label :category %>
-    <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+  </div>
+  
+    <%= hidden_field_tag "article[category_ids][]", nil %>
+    <% Category.all.each do |category| %>
+    
+  <div class='checkbox', id='article_checkbox'>
+    <%= check_box_tag "article[category_ids][]", category.id, @article.category_ids.include?(category.id), id: dom_id(category) %>
+    <%= label_tag dom_id(category), category.name %><br>
+  </div>
+     
+      <% end %>
+    
   </div>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
