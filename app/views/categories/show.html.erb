@@ -21,11 +21,10 @@
   <div class="article_list">
     <% if @articles.any? %>
       <ol class="articles">
-        <%= render 'cat_show' %>
+        <%= render 'layouts/article_list' %>
       </ol>
     <% end %>
     
     <%= will_paginate @articles %>
-    
   </div>
 </div>

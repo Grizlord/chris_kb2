@@ -1,0 +1,18 @@
+<% @articles.each do |article| %>
+  <li id="article-<%= article.id %>">
+    <span class="content">
+      <%= link_to article.title, article %>
+    </span>
+          
+    <span class="timestamp">
+      Posted <%= time_ago_in_words(article.created_at) %> ago.
+    </span>
+  
+    <span class="content">
+      <% if current_user?(article.user) %>
+        <%= link_to "delete", article, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+      <% end %>
+    </span>
+  </li>
+<% end %>
