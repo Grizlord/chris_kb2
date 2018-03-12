@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      flash[:success] = "You did it Water Boy!"
+      flash[:success] = "You have successfully brought life to new knowledge"
       redirect_to @article
     else
       render 'new'
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
-      flash[:success] = "Article successfully updated"
+      flash[:success] = "You successfully nurtured the knowledge, and so Skynet begins"
       redirect_to @article
     else
       render 'edit'
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   
   def destroy
     @article.destroy
-    flash[:success] = "Article deleted"
+    flash[:success] = "You have successfully killed knowledge"
     redirect_to request.referrer || root_url
   end
   

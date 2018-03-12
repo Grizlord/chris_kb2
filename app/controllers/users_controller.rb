@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "I like your new hair"
       if
         current_user.admin?
         redirect_to users_path
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "The Usurper has been vanquished"
     redirect_to users_url
   end
   

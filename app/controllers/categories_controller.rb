@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
   
   def destroy
     Category.find(params[:id]).destroy
-    flash[:success] = "Category deleted"
+    flash[:success] = "Category brutally murdered"
     redirect_to categories_url
   end
   

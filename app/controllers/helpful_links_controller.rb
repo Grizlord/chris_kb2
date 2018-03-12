@@ -37,7 +37,7 @@ class HelpfulLinksController < ApplicationController
   
   def destroy
     HelpfulLink.find(params[:id]).destroy
-    flash[:success] = "Link successfully deleted"
+    flash[:success] = "Link brutally murdered"
     redirect_to helpful_links_url
   end
   
