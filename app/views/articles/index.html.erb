@@ -19,11 +19,20 @@
 <div class="row">
   <div>
     <% if params[:query].present? %>
+      <% if @articles.empty? %>
       
-      <ol class="articles">
+        <div class="no_results">
+          There were no results found or your search might just suck...<br>
+          Either way you must try again.
+        </div>
+      
+      <% else %>
+      
+        <ol class="articles"> 
           <%= render @articles %>
-      </ol>
-   
+        </ol>
+        
+      <% end %>
     <% end %>
   </div>
 </div>
