@@ -22,8 +22,7 @@
       <% if @articles.empty? %>
       
         <div class="no_results">
-          There were no results found or your search might just suck...<br>
-          Either way you must try again.
+           <%= image_tag("no_results.png", alt: "No results found") %>
         </div>
       
       <% else %>
